@@ -1,0 +1,27 @@
+{
+  "name": "react-express",
+  "version": "0.1.0",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "cross-env": "^5.0.5",
+    "express": "^4.16.1",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "cross-env NODE_PATH=src/ npm-run-all -p watch-css start-js",
+    "build": "cross-env NODE_PATH=src/ npm run build-css && cross-env NODE_PATH=src/ react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
+}
